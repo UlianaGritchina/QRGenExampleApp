@@ -1,21 +1,28 @@
-//
-//  ContentView.swift
-//  ExampleQRGenApp
-//
-//  Created by Ульяна Гритчина on 26.09.2022.
-//
 
 import SwiftUI
+import QRGen
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack(spacing: 20) {
+                
+                QRCodeView(string: "Hello World!")
+                
+                QRCodeView(string: "https://github.com/UlianaGritchina/QRGen.git",
+                           foregroundColor: .blue,
+                           backgroundColor: .black,
+                           cornerRadius: 5)
+                
+                QRCodeView(string: "https://github.com/UlianaGritchina/QRGen.git",
+                           foregroundColor: .white,
+                           backgroundColor: .black,
+                           width: 150,
+                           height: 150,
+                           cornerRadius: 5)
+            }
+            .navigationTitle("QRGen Example App")
         }
-        .padding()
     }
 }
 
